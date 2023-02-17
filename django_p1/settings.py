@@ -14,7 +14,8 @@ SECRET_KEY = '0_o@xx^igr7oco+l8vxe4qz7xb*-r15$(b61nc&^ol!d%=^65#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+
 
 
 # Application definition
@@ -132,6 +133,6 @@ MESSAGE_TAGS = {
 # Email sending to the user if he makes inquiry to a property
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'add_your_username_of_your_email'
-EMAIL_HOST_PASSWORD = 'Write_the_password_of_your_email'
+EMAIL_HOST_USER = 'shivesht99@gmail.com'
+EMAIL_HOST_PASSWORD = 'Shivesh@2001'
 EMAIL_USE_TLS = True
