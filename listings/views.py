@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Listing 
 from django.core.paginator import Paginator
-from .choices import state_choices, price_choices, bedroom_choices
+from .choices import state_choices, price_choices, bedroom_choices, type_choices
 
 def index(request):
     listings=Listing.objects.order_by('-listing_date').filter(is_published=True)
@@ -52,7 +52,13 @@ def search(request):
     if 'price' in request.GET :
         price=request.GET['price']
         if price :
-            list_filter=list_filter.filter(price__lte=price ) 
+            list_filter=list_filter.filter(price__lte=price )
+
+    # filter by type
+    if 'type' in request.GET :
+        price=request.GET['type']
+        if price :
+            list_filter=list_filter.filter(type__iexact=type ) 
     
     
 
@@ -61,6 +67,7 @@ def search(request):
         'state_choices': state_choices ,
         'price_choices': price_choices ,
         'bedroom_choices':bedroom_choices , 
+        'type_choices':type_choices,
         'listings':list_filter,
         'values': request.GET
     }

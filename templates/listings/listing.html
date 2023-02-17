@@ -8,8 +8,8 @@
       <div class="row text-center">
         <div class="col-md-12">
           <h1 class="display-4">{{listing.title}}</h1>
-          <p class="lead">
-            <i class="fas fa-map-marker"></i>  {{listing.city}} {{listing.state}}, {{listing.zipcode}}</p>
+          <!--<p class="lead">
+            <i class="fas fa-map-marker"></i>  {{listing.city}} {{listing.state}}, {{listing.zipcode}}</p>-->
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
   <section id="listing" class="py-4">
     <div class="container">
       {% include 'partials/_alerts.html' %}
-      <a href="{% url 'listings' %}" class="btn btn-light mb-4">Back To Listings</a>
+      <a href="{% url 'listings' %}" class="btn btn-light mb-4">Back To Featured Gifts</a>
       <div class="row">
         <div class="col-md-9">
           <!-- Home Main Image -->
@@ -45,42 +45,46 @@
           <div class="row mb-5 thumbs">
               {% if listing.aux_image_1 %}
             <div class="col-md-2">
-              <a href="{{listing.aux_image_1.url}}" data-lightbox="home-images">
+              <a href="{{listing.aux_image_1.url}}" data-lightbox="image_gift">
                 <img src="{{listing.aux_image_1.url}}" alt="" class="img-fluid">
               </a>
             </div>
             {% endif %}
             {% if listing.aux_image_2 %}
             <div class="col-md-2">
-              <a href="{{listing.aux_image_2.url}}" data-lightbox="home-images">
+              <a href="{{listing.aux_image_2.url}}"  data-lightbox="image_gift">
                 <img src="{{listing.aux_image_2.url}}" alt="" class="img-fluid">
               </a>
             </div>{% endif %}
             {% if listing.aux_image_3 %}
             <div class="col-md-2">
-              <a href="{{listing.aux_image_3.url}}" data-lightbox="home-images">
+              <a href="{{listing.aux_image_3.url}}" data-lightbox="image_gift">
                 <img src="{{listing.aux_image_3.url}}" alt="" class="img-fluid">
               </a>
             </div>
             {% endif %}
             {% if listing.aux_image_4 %}
             <div class="col-md-2">
-              <a href="{{listing.aux_image_4.url}}" data-lightbox="home-images">
+              <a href="{{listing.aux_image_4.url}}" data-lightbox="image_gift">
                 <img src="{{listing.aux_image_4.url}}" alt="" class="img-fluid">
               </a>
             </div>
             {% endif %}
-            {% if listing.aux_image_5 %}
+            <!--{% if listing.aux_image_5 %}
             <div class="col-md-2">
-              <a href="{{listing.aux_image_5.url}}" data-lightbox="home-images">
+              <a href="{{listing.aux_image_5.url}}" data-lightbox="Gift-images">
                 <img src="{{listing.aux_image_5.url}}" alt="" class="img-fluid">
               </a>
             </div>
-            {% endif %}
-            {% if listing.aux_image_6 %}
-            <div class="col-md-2">
-              <a href="{{listing.aux_image_6.url}}" data-lightbox="home-images">
-                <img src="{{listing.aux_image_6.url}}" alt="" class="img-fluid">
+            {% endif %}-->
+            {% if listing.aux_video %}
+            <div class="col-md-2 embed-responsive embed-responsive-16by9 ">
+              <a href="{{listing.aux_video.url}}" >
+                <video class="embed-responsive-item" width="320" height="240" controls>
+                  <source src="{{listing.aux_video.url}}" type="video/mp4">
+                  <source src="{{listing.aux_video.url}}" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
               </a>
             </div>
             {% endif %}
@@ -90,12 +94,12 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-money-bill-alt"></i> Asking Price:
+                  <i class="fas fa-money-bill-alt"></i> Best Price:
                   <span class="float-right">{{listing.price | intcomma}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i> Bedrooms:
-                  <span class="float-right">{{listing.bedrooms}}</span>
+               <!-- <li class="list-group-item text-secondary">
+                  <i class="fas fa-bed"></i> Description:
+                  <span class="float-right">{{listing.description}}</span>
                 </li>
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-bath"></i> Bathrooms:
@@ -105,29 +109,29 @@
                   <i class="fas fa-car"></i> Garage:
                   <span class="float-right">{{listing.garage}}
                   </span>
-                </li>
+                </li>-->
               </ul>
             </div>
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item text-secondary">
+                <!--<li class="list-group-item text-secondary">
                   <i class="fas fa-th-large"></i> Square Feet:
                   <span class="float-right">{{listing.size}}</span>
-                </li>
-                <li class="list-group-item text-secondary">
+                </li>-->
+                <!--<li class="list-group-item text-secondary">
                   <i class="fas fa-square"></i> Lot Size:
                   <span class="float-right">{{listing.lot_size}} Acres
                   </span>
-                </li>
+                </li>-->
                 <li class="list-group-item text-secondary">
                   <i class="fas fa-calendar"></i> Listing Date:
                   <span class="float-right">{{listing.listing_date | timesince}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <!--<li class="list-group-item text-secondary">
                   <i class="fas fa-bed"></i> Realtor:
                   <span class="float-right">{{listing.realtor}}
                   </span>
-                </li>
+                </li>-->
 
 
               </ul>
@@ -145,11 +149,11 @@
           <div class="card mb-3">
             <img class="card-img-top" src="{{listing.realtor.photo.url}}" alt="">
             <div class="card-body">
-              <h5 class="card-title">Property Realtor</h5>
+              <h5 class="card-title">CUSTOMER AREA</h5>
               <h6 class="text-secondary">{{listing.realtor}}</h6>
             </div>
           </div>
-          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">BUY NOW</button>
         </div>
       </div>
     </div>
@@ -160,7 +164,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+          <h5 class="modal-title" id="inquiryModalLabel">BUY NOW</h5>
           <button type="button" class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
@@ -195,9 +199,13 @@
               <label for="phone" class="col-form-label">Phone:</label>
               <input type="text" name="phone" class="form-control">
             </div>
+            <!--<div class="form-group">
+              <label for="price" class="col-form-label">Price:</label>
+              <input type="text"  class="form-control" value="{{listing.price | intcomma}}" required>
+            </div>-->
             <div class="form-group">
-              <label for="message" class="col-form-label">Message:</label>
-              <textarea name="message" class="form-control"></textarea>
+              <label for="address" class="col-form-label">Address:</label>
+              <textarea name="address" class="form-control"></textarea>
             </div>
             <hr>
             <input type="submit" value="Send" class="btn btn-block btn-secondary">
@@ -206,4 +214,6 @@
       </div>
     </div>
   </div>
+
+  
 {% endblock %}
