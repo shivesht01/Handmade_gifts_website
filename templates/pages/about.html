@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">About Real Estate</h1>
+          <h1 class="display-4">About Gift House</h1>
           <p class="lead">Did the despicable application really long the tax? The rundown cream can't receive the stick.</p>
         </div>
       </div>
@@ -32,7 +32,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h2>We Search For The Perfect Home</h2>
+          <h2>WE GIFT HAPPINESS</h2>
           <p class="lead">Did the afraid rice really realise the forever? It was then the fruitful year met the exultant entrance.</p>
           <img src="{% static 'img/about.jpg' %}" alt="">
           <p class="mt-4">The menacing bill can't tour the degree. Did the spotted title really remove the commercial?</p>
@@ -44,7 +44,7 @@
             <div class="card">
             <img class="card-img-top" src="{{realtor.photo.url}}" alt="Seller of the month">
             <div class="card-body">
-              <h5 class="card-title">Seller Of The Month</h5>
+              <h5 class="card-title">Best Foreign Customer</h5>
               <h6 class="text-secondary">{{realtor.name}}</h6>
               <p class="card-text">{{realtor.description}}
               </p>
@@ -68,14 +68,14 @@
   <!-- Team -->
   <section id="team" class="py-5">
     <div class="container">
-      <h2 class="text-center">Our Team</h2>
+      <h2 class="text-center">Our Foreign Customers</h2>
       <div class="row text-center">
           {% if realtors %}
           {% for realtor in realtors %}
         <div class="col-md-4">
           <img src="{{realtor.photo.url}}" alt="" class="rounded-circle mb-3">
           <h4>{{realtor.name}}</h4>
-          <p class="text-success">Realtor</p>
+          <p class="text-success">Customer</p>
           <hr>
           <p>
             <i class="fas fa-phone"></i> {{realtor.phone_no}} </p>

@@ -8,14 +8,14 @@
         <div class="col-md-12">
           <form action="{% url 'search' %}">
             <!-- Form Row 1 -->
-            <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">Keywords</label>
-                <input type="text" name="keywords " class="form-control" placeholder="Keyword (Pool, Garage, etc)" 
-                value="{{values.keywords}}" >
-              </div>
+             <!-- Form Row 1 -->
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label class="sr-only">Keywords</label>
+          <input type="text" name="keywords" class="form-control" placeholder="Search by any Keyword ">
+        </div>
 
-              <div class="col-md-4 mb-3">
+              <!--<div class="col-md-4 mb-3">
                 <label class="sr-only">City</label>
                 <input type="text" name="city" class="form-control" placeholder="City" value="{{values.city}}">
               </div>
@@ -36,7 +36,7 @@
                 </select>
               </div>
             </div>
-            <!-- Form Row 2 -->
+             Form Row 2 
             <div class="form-row">
               <div class="col-md-6 mb-3">
                 <label class="sr-only">Bedrooms</label>
@@ -65,6 +65,16 @@
                      {% endfor %}
                 </select>
               </div>
+            </div>-->
+            <div class="col-md-6 mb-3">
+              <select name="price" class="form-control" id="type">
+                <option selected="true" disabled="disabled">Price Limit (Any)</option>
+                {% for key, value in price_choices.items %}
+                <option value="{{key}}">{{value}}</option>
+    
+                {% endfor %}
+              </select>
+            </div>
             </div>
             <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
           </form>
@@ -109,11 +119,10 @@
             <div class="card-body">
               <div class="listing-heading text-center">
                 <h4 class="text-primary">{{listing.title}}</h4>
-                <p>
-                  <i class="fas fa-map-marker text-secondary"></i> {{listing.city}},{{listing.state}}, {{listing.zipcode}}</p>
+              
               </div>
               <hr>
-              <div class="row py-2 text-secondary">
+              <!--<div class="row py-2 text-secondary">
                 <div class="col-6">
                   <i class="fas fa-th-large"></i> {{listing.size |intcomma}} sq.ft </div>
                 <div class="col-6">
@@ -129,7 +138,7 @@
               <div class="row py-2 text-secondary">
                 <div class="col-12">
                   <i class="fas fa-user"></i> {{listing.realtor}}</div>
-              </div>
+              </div>-->
               <div class="row text-secondary pb-2">
                 <div class="col-6">
                   <i class="fas fa-clock"></i>{{listing.listing_date | timesince }} </div>

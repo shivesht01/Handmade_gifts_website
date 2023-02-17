@@ -9,9 +9,9 @@ def contact(request) :
         listing=request.POST['listing']
         name=request.POST['name']
         email=request.POST['email']
-        realtor_email=request.POST['realtor_email']
         phone=request.POST['phone']
-        message=request.POST['message']
+        address=request.POST['address']
+        #price=request.POST['price']
         user_id=request.POST['user_id']
 
         if request.user.is_authenticated:
@@ -21,12 +21,13 @@ def contact(request) :
                 messages.error(request,'Oops you have already made inquiry for this property :( ')
                 return redirect('/listings/'+listing_id)
 
-        contact=Contact(listing=listing, listing_id=listing_id, name=name, email=email, phone=phone, message=message, user_id=user_id)
+        contact=Contact(listing=listing, listing_id=listing_id, name=name, email=email, phone=phone, address=address, user_id=user_id)
 
         contact.save()
+        
         send_mail(
-        'Regarding Property Enquiry',
-        'Hey ' + name + ' you have inquired about one of our property ' + listing + ' . Sign in for the next step :)' ,
+        'Regarding Gift Enquiry',
+        'Hey ' + name + ' you want to buy one of our product ' + listing + ' . Kindly do the payment and after that our team will contact you via phone.' ,
         'shivesht99@gmail.com',
         [email, 'shivesht01@gmail.com'],
         fail_silently=False,
