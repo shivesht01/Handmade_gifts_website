@@ -122,7 +122,8 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,'django_p1/static')]
 # Deployment
 
 STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'django_p1/static', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
 
 # Media folder
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
